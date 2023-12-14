@@ -1,9 +1,15 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AboutModule } from './about/about.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StartupService } from './core/startup.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+export function initApp(service: StartupService) {
+  return () => service.getConfig();
+}
 
 @NgModule({
   declarations: [
@@ -12,9 +18,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AboutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_INITIALIZER, useFactory: initApp, deps: [StartupService], multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
