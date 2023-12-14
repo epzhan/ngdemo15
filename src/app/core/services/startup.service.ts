@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { switchMap, tap, map } from 'rxjs/operators';
-import { Appinfo } from '../model/appinfo.model';
+import { Appinfo } from '../../model/appinfo.model';
 
 const APP_URL = '../assets/config.dev.json';
 
@@ -16,14 +16,12 @@ export class StartupService {
   ) { }
 
   private getTesting(): Observable<Appinfo> {
-    console.log('getTesting#');
     return this.http.get<Appinfo>(APP_URL);
   }
 
   getConfig(): Observable<string> {
-    console.log('getConfig#');
     return this.getTesting().pipe(
-      tap(i => console.log('testing-getConfig#', i.title)),
+      tap(i => console.log('testing-getConfig 12 12 #', i.title)),
       switchMap((i: Appinfo) => {
         console.log(i.description);
         return of('1');

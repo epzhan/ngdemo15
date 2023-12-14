@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AboutModule } from './about/about.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StartupService } from './core/startup.service';
+import { StartupService } from './core/services/startup.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export function initApp(service: StartupService) {
