@@ -1,0 +1,10 @@
+<div class="waveform-content">
+    <div>
+        <button mat-button (click)="getMeowFacts()">
+            <label>Get fact</label>
+        </button>
+    </div>
+
+    <mat-divider></mat-divider>
+    <ng-container *ngIf="facts$|async as data">{{data|json}}</ng-container>
+</div>

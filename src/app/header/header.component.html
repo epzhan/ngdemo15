@@ -3,9 +3,8 @@
     <div>
         <button mat-button [matMenuTriggerFor]="aboveMenu">Page</button>
         <mat-menu #aboveMenu="matMenu" yPosition="above">
-            <button mat-menu-item (click)="redirect('about')">About</button>
-            <button mat-menu-item (click)="redirect('employee')">Emplyoee</button>
-            <button mat-menu-item (click)="redirectDetail('employee', '12')">Emplyoee</button>
+            <button mat-menu-item *ngFor="let item of navigationLinks"
+                (click)="redirect(item.name)">{{item.label}}</button>
         </mat-menu>
     </div>
 </div>

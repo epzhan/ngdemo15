@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+const NAVIGATION_LINK = [
+  { name: 'about', label: 'About', path: 'about' },
+  { name: 'employee', label: 'Employee', path: 'employee' },
+  { name: 'employeeDetail', label: 'Employee Detail', path: 'employee', value: '12' },
+  { name: 'waveform', label: 'Waveform', path: 'waveform' }
+];
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,15 +16,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  navigationLinks = NAVIGATION_LINK;
+
   constructor(
     private router: Router
   ) { }
 
-  redirect(path: string) {
-    this.router.navigate(['/' + path]);
-  }
+  redirect(name: string) {
+    const linkitem = this.navigationLinks.find(i => i.name === name);
 
-  redirectDetail(path: string, id: string) {
-    this.router.navigate(['/' + path, id])
+    if (!linkitem.value)
+      this.router.navigate([`/${linkitem.path}`]);
+    else
+      this.router.navigate([`/${linkitem.path}`, linkitem.value])
   }
 }
