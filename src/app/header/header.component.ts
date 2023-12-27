@@ -16,4 +16,8 @@ export class HeaderComponent {
   redirect(path: string) {
     this.router.navigate(['/' + path]);
   }
+
+  redirectDetail(path: string, id: string) {
+    this.router.navigate(['/' + path, id])
+  }
 }

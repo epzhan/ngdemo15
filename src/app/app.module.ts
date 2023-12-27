@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeeModule } from './employee/employee.module';
 import { EmployeeDetailModule } from './employee-detail/employee-detail.module';
 import { AppRoutingModule } from './app-routing.module';
-import { MatIconModule } from '@angular/material/icon';
 import { HeaderModule } from './header/header.module';
 
 export function initApp(service: StartupService) {
