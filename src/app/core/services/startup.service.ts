@@ -21,12 +21,11 @@ export class StartupService {
 
   getConfig(): Observable<string> {
     return this.getTesting().pipe(
-      tap(i => console.log('testing-getConfig 12 12 #', i.title)),
-      switchMap((i: Appinfo) => {
+      tap(i => console.log('testing-getConfig 12 12 #', i)),
+      switchMap((i: Appinfo) => { 
         console.log(i.description);
         return of('1');
       })
     );
-    //return of('1');
   }
 }

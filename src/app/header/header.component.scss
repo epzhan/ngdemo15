@@ -1,0 +1,9 @@
+.header-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-content :nth-child(2){
+    margin-left: auto;
+    align-self: center;
+}

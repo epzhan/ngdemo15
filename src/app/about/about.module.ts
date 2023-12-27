@@ -16,9 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
     AboutRoutingModule,
     MatButtonModule,
     MatIconModule
-  ],
-  exports: [
-    AboutComponent
   ]
 })
 export class AboutModule { }
