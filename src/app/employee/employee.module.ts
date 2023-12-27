@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
 
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeComponent } from './employee.component';
+import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
-  declarations: [EmployeeComponent],
+  declarations: [EmployeeComponent, EmployeeDetailComponent],
   imports: [
     CommonModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    MatListModule,
+    MatButtonModule
   ],
   exports: [
     EmployeeComponent

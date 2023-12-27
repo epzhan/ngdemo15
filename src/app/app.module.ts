@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StartupService } from './core/services/startup.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeModule } from './employee/employee.module';
-import { EmployeeDetailModule } from './employee-detail/employee-detail.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderModule } from './header/header.module';
 
@@ -26,8 +25,7 @@ export function initApp(service: StartupService) {
     HttpClientModule,
     HeaderModule,
     AboutModule,
-    EmployeeModule,
-    EmployeeDetailModule
+    EmployeeModule
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: initApp, deps: [StartupService], multi: true }
