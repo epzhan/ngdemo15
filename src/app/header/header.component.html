@@ -1,6 +1,14 @@
 <div class="header-content">
     <h2>Title</h2>
     <div>
+        <button mat-button (click)="testing()">
+            testing
+        </button>
+        <button mat-button (click)="testing()">
+            testing 2
+        </button>
+    </div>
+    <div>
         <button mat-button [matMenuTriggerFor]="aboveMenu">Page</button>
         <mat-menu #aboveMenu="matMenu" yPosition="above">
             <button mat-menu-item *ngFor="let item of navigationLinks"

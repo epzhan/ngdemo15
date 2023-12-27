@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../core/services/data.service';
 
 const NAVIGATION_LINK = [
   { name: 'about', label: 'About', path: 'about' },
@@ -19,7 +20,8 @@ export class HeaderComponent {
   navigationLinks = NAVIGATION_LINK;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private dataService:DataService
   ) { }
 
   redirect(name: string) {
@@ -29,5 +31,9 @@ export class HeaderComponent {
       this.router.navigate([`/${linkitem.path}`]);
     else
       this.router.navigate([`/${linkitem.path}`, linkitem.value])
+  }
+
+  testing(){
+    console.log(this.dataService.AppInfo);
   }
 }
