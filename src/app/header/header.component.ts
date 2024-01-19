@@ -40,7 +40,7 @@ export class HeaderComponent {
     console.log(this.dataService.AppInfo);
   }
 
-  switchLanguage(langauge: 'ch' | 'en') {
+  switchLanguage(langauge: 'zh_cn' | 'zh_tw' | 'en') {
     this.translateService.use(langauge);
   }
 }
