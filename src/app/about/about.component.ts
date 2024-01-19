@@ -15,6 +15,7 @@ const log = logger('AboutComponent');
 export class AboutComponent implements OnInit {
 
   appState$: Observable<boolean>;
+  param = { value: 'world' };
 
   constructor(
     private aboutService: AboutService
