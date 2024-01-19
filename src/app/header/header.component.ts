@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../core/services/data.service';
+import { TranslateService } from '@ngx-translate/core';
 
 const NAVIGATION_LINK = [
   { name: 'about', label: 'About', path: 'about' },
@@ -18,10 +19,12 @@ const NAVIGATION_LINK = [
 export class HeaderComponent {
 
   navigationLinks = NAVIGATION_LINK;
+  title = 'My title';
 
   constructor(
+    private translateService: TranslateService,
     private router: Router,
-    private dataService:DataService
+    private dataService: DataService
   ) { }
 
   redirect(name: string) {
@@ -33,7 +36,11 @@ export class HeaderComponent {
       this.router.navigate([`/${linkitem.path}`, linkitem.value])
   }
 
-  testing(){
+  testing() {
     console.log(this.dataService.AppInfo);
+  }
+
+  switchLanguage(langauge: 'ch' | 'en') {
+    this.translateService.use(langauge);
   }
 }

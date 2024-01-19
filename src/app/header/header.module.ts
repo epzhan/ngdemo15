@@ -4,6 +4,7 @@ import { HeaderComponent } from './header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,10 @@ import { MatMenuModule } from '@angular/material/menu';
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    TranslateModule.forChild({
+      extend: true
+    })
   ],
   exports: [
     HeaderComponent

@@ -1,11 +1,17 @@
 <div class="header-content">
-    <h2>Title</h2>
+    <h2>{{"title" | translate }}</h2>
     <div>
         <button mat-button (click)="testing()">
             testing
         </button>
         <button mat-button (click)="testing()">
             testing 2
+        </button>
+        <button mat-raised-button (click)="switchLanguage('en')">
+            English
+        </button>
+        <button mat-raised-button (click)="switchLanguage('ch')">
+            Chinese
         </button>
     </div>
     <div>
