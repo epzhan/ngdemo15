@@ -27,3 +27,10 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
         tags: |
           $(tag)
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Free Trial(9a43f889-f40c-4ce5-a9d5-8bceedf4ce26)'
+        azureContainerRegistry: '{"loginServer":"devcontainerregis.azurecr.io", "id" : "/subscriptions/9a43f889-f40c-4ce5-a9d5-8bceedf4ce26/resourceGroups/dev-container-resc/providers/Microsoft.ContainerRegistry/registries/devcontainerregis"}'
+        dockerComposeFile: '**/docker-compose.yml'
+        action: 'Run a Docker Compose command'
